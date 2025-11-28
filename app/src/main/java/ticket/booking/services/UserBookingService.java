@@ -24,7 +24,7 @@ public class UserBookingService
         // Using stream to find a matching user
         Optional<User> foundUser = userList.stream().filter(user1 -> {
             return user1.getName().equals(user.getName()) && user1.getPassword().equals(user.getPassword())
-                })
+                })as
                 .findFirst();
 
         // Return true if user exists, false otherwise
