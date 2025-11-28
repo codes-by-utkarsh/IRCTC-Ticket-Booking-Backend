@@ -1,0 +1,262 @@
+[
+  {
+    "user_id": "U001",
+    "name": "Aarav Sharma",
+    "hashed_password": "hp_12345",
+    "tickets_booked": [
+      {
+        "source": "Mumbai",
+        "destination": "Delhi",
+        "date_of_travel": "2024-01-15T09:00:00Z",
+        "train": {
+          "train_id": "T1001",
+          "train_no": 12951,
+          "seats": [
+            [0,0,0,1,1],
+            [1,1,0,0,0],
+            [0,0,1,1,0],
+            [0,1,0,0,0]
+          ]
+        },
+        "stations": {
+          "arrival_time": "18:45:00",
+          "departure_time": "09:00:00"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": "U002",
+    "name": "Lavleen Singh",
+    "hashed_password": "hp_54321",
+    "tickets_booked": [
+      {
+        "source": "Bangalore",
+        "destination": "Hyderabad",
+        "date_of_travel": "2024-02-10T14:30:00Z",
+        "train": {
+          "train_id": "T2002",
+          "train_no": 22691,
+          "seats": [
+            [0,0,1,0,0],
+            [1,0,0,1,1],
+            [1,1,0,0,0],
+            [0,0,0,1,0]
+          ]
+        },
+        "stations": {
+          "arrival_time": "18:00:00",
+          "departure_time": "14:30:00"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": "U003",
+    "name": "Mehak Kaur",
+    "hashed_password": "hp_99887",
+    "tickets_booked": [
+      {
+        "source": "Kolkata",
+        "destination": "Patna",
+        "date_of_travel": "2024-03-22T07:15:00Z",
+        "train": {
+          "train_id": "T3003",
+          "train_no": 12303,
+          "seats": [
+            [0,1,0,0,1],
+            [0,0,0,1,1],
+            [1,0,0,0,0],
+            [0,0,1,0,1]
+          ]
+        },
+        "stations": {
+          "arrival_time": "12:50:00",
+          "departure_time": "07:15:00"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": "U004",
+    "name": "Rohan Verma",
+    "hashed_password": "hp_77661",
+    "tickets_booked": [
+      {
+        "source": "Chennai",
+        "destination": "Vijayawada",
+        "date_of_travel": "2024-01-30T16:20:00Z",
+        "train": {
+          "train_id": "T4004",
+          "train_no": 12621,
+          "seats": [
+            [0,0,0,0,0],
+            [1,0,1,0,1],
+            [0,1,0,1,0],
+            [0,0,1,0,0]
+          ]
+        },
+        "stations": {
+          "arrival_time": "20:40:00",
+          "departure_time": "16:20:00"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": "U005",
+    "name": "Sanya Gupta",
+    "hashed_password": "hp_11223",
+    "tickets_booked": [
+      {
+        "source": "Jaipur",
+        "destination": "Ahmedabad",
+        "date_of_travel": "2024-04-11T10:00:00Z",
+        "train": {
+          "train_id": "T5005",
+          "train_no": 19416,
+          "seats": [
+            [1,1,0,0,0],
+            [0,0,1,1,0],
+            [0,0,0,0,1],
+            [1,0,0,1,0]
+          ]
+        },
+        "stations": {
+          "arrival_time": "18:00:00",
+          "departure_time": "10:00:00"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": "U006",
+    "name": "Harshit Meena",
+    "hashed_password": "hp_44789",
+    "tickets_booked": [
+      {
+        "source": "Lucknow",
+        "destination": "Kanpur",
+        "date_of_travel": "2024-05-02T08:30:00Z",
+        "train": {
+          "train_id": "T6006",
+          "train_no": 12004,
+          "seats": [
+            [0,0,1,0,0],
+            [1,0,0,1,0],
+            [0,0,0,0,0],
+            [1,1,0,0,1]
+          ]
+        },
+        "stations": {
+          "arrival_time": "09:10:00",
+          "departure_time": "08:30:00"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": "U007",
+    "name": "Priya Nair",
+    "hashed_password": "hp_98765",
+    "tickets_booked": [
+      {
+        "source": "Kochi",
+        "destination": "Trivandrum",
+        "date_of_travel": "2024-06-12T06:00:00Z",
+        "train": {
+          "train_id": "T7007",
+          "train_no": 16306,
+          "seats": [
+            [1,0,0,0,0],
+            [0,0,1,1,0],
+            [0,1,0,0,1],
+            [1,0,0,0,0]
+          ]
+        },
+        "stations": {
+          "arrival_time": "09:30:00",
+          "departure_time": "06:00:00"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": "U008",
+    "name": "Dev Rathod",
+    "hashed_password": "hp_12390",
+    "tickets_booked": [
+      {
+        "source": "Pune",
+        "destination": "Goa",
+        "date_of_travel": "2024-07-19T23:00:00Z",
+        "train": {
+          "train_id": "T8008",
+          "train_no": 11099,
+          "seats": [
+            [0,0,0,1,1],
+            [0,1,0,0,0],
+            [1,0,0,1,0],
+            [0,0,0,0,0]
+          ]
+        },
+        "stations": {
+          "arrival_time": "06:15:00",
+          "departure_time": "23:00:00"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": "U009",
+    "name": "Simran Khatri",
+    "hashed_password": "hp_55555",
+    "tickets_booked": [
+      {
+        "source": "Surat",
+        "destination": "Mumbai",
+        "date_of_travel": "2024-08-09T05:00:00Z",
+        "train": {
+          "train_id": "T9009",
+          "train_no": 22954,
+          "seats": [
+            [0,1,1,0,0],
+            [0,0,0,1,1],
+            [1,0,0,0,0],
+            [0,0,0,0,1]
+          ]
+        },
+        "stations": {
+          "arrival_time": "09:45:00",
+          "departure_time": "05:00:00"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": "U010",
+    "name": "Kabir Ahuja",
+    "hashed_password": "hp_20202",
+    "tickets_booked": [
+      {
+        "source": "Delhi",
+        "destination": "Agra",
+        "date_of_travel": "2024-09-15T12:45:00Z",
+        "train": {
+          "train_id": "T1010",
+          "train_no": 12050,
+          "seats": [
+            [0,0,0,0,0],
+            [1,1,1,0,0],
+            [0,0,1,0,1],
+            [0,0,0,0,0]
+          ]
+        },
+        "stations": {
+          "arrival_time": "14:30:00",
+          "departure_time": "12:45:00"
+        }
+      }
+    ]
+  }
+]
