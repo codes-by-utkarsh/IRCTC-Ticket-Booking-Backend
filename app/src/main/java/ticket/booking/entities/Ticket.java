@@ -12,4 +12,5 @@ public class Ticket
     private Date dateTime;
     private Train train;
 
+
 }
