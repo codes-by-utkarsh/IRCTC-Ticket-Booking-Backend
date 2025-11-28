@@ -17,11 +17,10 @@ public class UserBookingService
     {
         this.user = user1;
         File users = new File(USER_PATH);
-        userList = objectMapper.readValue(users, new TypeReference<List<User>>() {
-            @Override
-            public Type getType() {
-                return super.getType();
-            }
-        })
+        userList = objectMapper.readValue(users, new TypeReference<List<User>>() )
+        {
+
+        }
+
     }
 }
