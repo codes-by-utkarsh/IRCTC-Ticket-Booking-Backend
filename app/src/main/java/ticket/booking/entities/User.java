@@ -75,4 +75,15 @@ public class User
     {
         this.phone = phone;
     }
+    public void setTicketsBooked(List<Ticket> ticketsBooked)
+    {
+        this.ticketsBooked = ticketsBooked;
+    }
+    public void printTickets()
+    {
+        for (Ticket ticket : ticketsBooked)
+        {
+            System.out.println(ticket);
+        }
+    }
 }
