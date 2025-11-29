@@ -46,4 +46,10 @@ public class UserBookingService
         objectMapper.writeValue(usersFile, userList);
     }
 
+    public void fetchBooking()
+    {
+        user.printTickets();
+    }
+
+
 }
