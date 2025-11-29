@@ -24,19 +24,18 @@ public class UserBookingService
         loadUsers();
     }
 
-    public List<User> loadUsers() throws IOException
-    {
-        File file = new File(USER_PATH);
-        userList = objectMapper.readValue(users, new TypeReference<List<User>>() {});
-        return userList;
-    }
-
     public UserBookingService(User user1) throws Exception
     {
         this.user = user1;
-        File users = new File(USER_PATH);
-        userList = objectMapper.readValue(users, new TypeReference<List<User>>() {});   // convert JSON array → List<User>
+        loadUsers();
     }
+
+    public List<User> loadUsers() throws IOException
+    {
+        File file = new File(USER_PATH);
+        return objectMapper.readValue(users, new TypeReference<List<User>>() {});
+    }
+
     public Boolean loginUser() {
         // Using stream to find a matching user
         Optional<User> foundUser = userList.stream().filter(user1 -> {
