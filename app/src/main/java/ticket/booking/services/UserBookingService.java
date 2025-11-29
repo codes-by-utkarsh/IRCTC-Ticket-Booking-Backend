@@ -6,6 +6,7 @@ import ticket.booking.entities.User;
 import ticket.booking.utils.UserServiceUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +29,21 @@ public class UserBookingService
             return user1.getName().equalsIgnoreCase(user.getName()) && UserServiceUtils.checkPassword(user1.getHashedPassword(), user.getPassword());}).findFirst();
         // Return true if user exists, false otherwise
         return foundUser.isPresent();
+    }
+    public Boolean signUpUser(User user1)
+    {
+        try{
+            userList.add(user1);
+            saveuserListtoFile();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    private void saveuserListtoFile() throws IOException {
+        File usersFile = new File(USER_PATH);
+        objectMapper.writeValue(usersFile, userList);
     }
 
 }
