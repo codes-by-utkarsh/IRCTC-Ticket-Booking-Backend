@@ -14,9 +14,11 @@ import java.util.Optional;
 public class UserBookingService
 {
     private User user;
-    private ObjectMapper objectMapper = new ObjectMapper(); //used to map, serialize and deserialize the objects from json
+    private final ObjectMapper objectMapper = new ObjectMapper(); //used to map, serialize and deserialize the objects from json
     private List<User> userList;
     private static final String USER_PATH = "app/src/main/java/ticket/booking/localDb/users.json";
+
+
     public UserBookingService(User user1) throws Exception
     {
         this.user = user1;
@@ -30,13 +32,20 @@ public class UserBookingService
         // Return true if user exists, false otherwise
         return foundUser.isPresent();
     }
-    public Boolean signUpUser(User user1)
+    public Boolean signUpUser(User user)
     {
+        Optional<User> foundUser = userList.stream().filter(user1 -> {return user1.getUserId().equalsIgnoreCase(user.getUserId())}).findFirst();
+        if(foundUser.isPresent())
+        {
+            System.out.println("User already exists. Try Another");
+            return false;
+        }
         try{
-            userList.add(user1);
+            userList.add(user);
             saveuserListtoFile();
             return true;
         } catch (IOException e) {
+            System.out.println("Internal System Error");
             return false;
         }
     }
@@ -50,6 +59,31 @@ public class UserBookingService
     {
         user.printTickets();
     }
+    public Boolean cancelBooking(String ticketId) {
 
+        if(ticketId.isEmpty())
+        {
+            System.out.println("Ticket Id is Empty");
+            return false;
+        }
+        boolean isRemoved = user.getTicketsBooked().removeIf(ticket -> ticket.getTicketId().equalsIgnoreCase(ticketId));
+        if(isRemoved)
+        {
+            System.out.println("Ticket with Ticket ID - "+ticketId+ " has been Cancelled");
+            try
+            {
+                saveuserListtoFile();
+            } catch (IOException e) {
+                throw new RuntimeException("Unable to save booking to file");
+            }
+            return true;
+        }
+        else if(!isRemoved)
+        {
+            System.out.println("Ticket with Ticket ID - "+ticketId+ " has NOT been Cancelled");
+            return false;
+        }
+        return true;
+    }
 
 }
