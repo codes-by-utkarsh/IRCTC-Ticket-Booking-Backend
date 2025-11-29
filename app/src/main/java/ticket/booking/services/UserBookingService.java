@@ -18,12 +18,12 @@ public class UserBookingService
     {
         this.user = user1;
         File users = new File(USER_PATH);
-        userList = objectMapper.readValue(users, new TypeReference<List<User>>() {});
+        userList = objectMapper.readValue(users, new TypeReference<List<User>>() {});   // convert JSON array → List<User>
     }
     public Boolean loginUser() {
         // Using stream to find a matching user
         Optional<User> foundUser = userList.stream().filter(user1 -> {
-            return user1.getName().equals(user.getName()) && user1.getPassword().equals(user.getPassword())
+            return user1.name().equals(user.getName()) && user1.getPassword().equals(user.getPassword())
                 })as
                 .findFirst();
 
