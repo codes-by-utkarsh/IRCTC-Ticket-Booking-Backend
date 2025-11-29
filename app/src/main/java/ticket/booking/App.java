@@ -8,7 +8,9 @@ import ticket.booking.services.UserBookingService;
 import ticket.booking.utils.UserServiceUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 
 public class App
@@ -45,16 +47,30 @@ public class App
                 case 1:
                     System.out.println("Enter Your Name");
                     String name = sc.nextLine();
-                    System.out.println("Enter Your Username");
-                    String username = sc.next();
                     System.out.println("Enter Your Password");
                     String password = sc.next();
                     System.out.println("Enter Your Email Address");
                     String email = sc.next();
                     System.out.println("Enter Your Phone Number");
                     String phone = sc.next();
-                    User user = new User();
-                    userBookingService.signUpUser(name,username,password, UserServiceUtils.hashPassword(password),email,phone,)
+                    User user = new User(
+                            name,
+                            UUID.randomUUID().toString(),        // userId should be UUID
+                            password,
+                            UserServiceUtils.hashPassword(password),
+                            email,
+                            phone,
+                            new ArrayList<>()                   // empty list of tickets
+                    );
+                    System.out.println("Your Details are as follows : "+user);
+                    userBookingService.signUpUser(user);
+                    break;
+                    case 2:
+                        System.out.println("Enter Your UserID/UUID");
+                        String userID = sc.nextLine();
+                        System.out.println("Enter Your Password");
+                        String pas
+
             }
         }
     }
