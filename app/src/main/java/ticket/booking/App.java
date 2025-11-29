@@ -3,6 +3,7 @@
  */
 package ticket.booking;
 
+import ticket.booking.entities.User;
 import ticket.booking.services.UserBookingService;
 
 import java.io.IOException;
@@ -42,7 +43,17 @@ public class App
             {
                 case 1:
                     System.out.println("Enter Your Name");
-                    String user
+                    String name = sc.nextLine();
+                    System.out.println("Enter Your Username");
+                    String username = sc.next();
+                    System.out.println("Enter Your Password");
+                    String password = sc.next();
+                    System.out.println("Enter Your Email Address");
+                    String email = sc.next();
+                    System.out.println("Enter Your Phone Number");
+                    String phone = sc.next();
+                    User user = new User();
+                    userBookingService.signUpUser(name,username,password,)
             }
         }
     }
