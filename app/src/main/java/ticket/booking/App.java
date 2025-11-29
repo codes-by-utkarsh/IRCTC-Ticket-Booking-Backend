@@ -5,6 +5,7 @@ package ticket.booking;
 
 import ticket.booking.entities.User;
 import ticket.booking.services.UserBookingService;
+import ticket.booking.utils.UserServiceUtils;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -53,7 +54,7 @@ public class App
                     System.out.println("Enter Your Phone Number");
                     String phone = sc.next();
                     User user = new User();
-                    userBookingService.signUpUser(name,username,password,)
+                    userBookingService.signUpUser(name,username,password, UserServiceUtils.hashPassword(password),email,phone,)
             }
         }
     }
