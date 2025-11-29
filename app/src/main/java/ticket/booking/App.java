@@ -5,6 +5,7 @@ package ticket.booking;
 
 import ticket.booking.services.UserBookingService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -19,6 +20,30 @@ public class App
         try
         {
             userBookingService = new UserBookingService();
+        }
+        catch (IOException e)
+        {
+           System.out.println("Error: User booking service is not available");
+           return;
+        }
+        while(option!=7)
+        {
+            System.out.println("Choose Option");
+            System.out.println("1. Sign Up");
+            System.out.println("2. Sign In");
+            System.out.println("3. Fetch Booking Details");
+            System.out.println("4. Search Trains");
+            System.out.println("5. Book a Seat");
+            System.out.println("6. Cancel Booking");
+            System.out.println("7. Sign Out & Exit");
+
+            option = sc.nextInt();
+            switch(option)
+            {
+                case 1:
+                    System.out.println("Enter Your Name");
+                    String user
+            }
         }
     }
 }
