@@ -19,6 +19,18 @@ public class UserBookingService
     private static final String USER_PATH = "app/src/main/java/ticket/booking/localDb/users.json";
 
 
+    public UserBookingService() throws IOException
+    {
+        loadUsers();
+    }
+
+    public List<User> loadUsers() throws IOException
+    {
+        File file = new File(USER_PATH);
+        userList = objectMapper.readValue(users, new TypeReference<List<User>>() {});
+        return userList;
+    }
+
     public UserBookingService(User user1) throws Exception
     {
         this.user = user1;
