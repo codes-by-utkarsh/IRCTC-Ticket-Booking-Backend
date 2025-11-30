@@ -16,7 +16,7 @@ public class TrainService
     private User user;
     private final ObjectMapper objectMapper = new ObjectMapper();
     private List<Train> trainList;
-    private static final String TRAIN_PATH = "app/src/main/java/ticket/booking/localDb/trains.json";
+    private static final String TRAIN_PATH = System.getProperty("user.dir") + "/app/src/main/java/ticket/booking/localDb/trains.json";
 
     public TrainService() throws IOException
     {

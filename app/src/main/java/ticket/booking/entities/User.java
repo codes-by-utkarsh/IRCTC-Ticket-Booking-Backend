@@ -62,6 +62,12 @@ public class User
     {
         this.username = username;
     }
+    
+    // For JSON deserialization - maps user_id to username
+    public void setUserId(String userId)
+    {
+        this.username = userId;
+    }
     public void setPassword(String password)
     {
         this.password = password;

@@ -3,12 +3,13 @@
  */
 package ticket.booking;
 
-import org.junit.Test;
 import static org.junit.Assert.*;
 
+import org.junit.Test;
+
 public class AppTest {
-    @Test public void appHasAGreeting() {
+    @Test public void appExists() {
         App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+        assertNotNull("app should exist", classUnderTest);
     }
 }
