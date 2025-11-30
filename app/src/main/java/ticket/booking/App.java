@@ -105,10 +105,6 @@ public class App
                         if(loginSuccess)
                         {
                             System.out.println("Login Successful!");
-                            try
-                            {
-                                UserBookingService user = new UserBookingService(user);
-                            }
                         }
                         else
                         {
