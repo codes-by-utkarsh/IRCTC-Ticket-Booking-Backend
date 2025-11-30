@@ -6,9 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import ticket.booking.services.UserBookingService;
+
+
 import ticket.booking.entities.Train;
 import ticket.booking.entities.User;
 import ticket.booking.utils.UserServiceUtils;
@@ -16,9 +19,14 @@ import ticket.booking.utils.UserServiceUtils;
 public class UserBookingService
 {
     private User user;
-    private final ObjectMapper objectMapper = new ObjectMapper(); //used to map, serialize and deserialize the objects from json
+    private final ObjectMapper objectMapper; //used to map, serialize and deserialize the objects from json
     private List<User> userList;
-    private static final String USER_PATH = "app/src/main/java/ticket/booking/localDb/users.json";
+    private static final String USER_PATH = System.getProperty("user.dir") + "/app/src/main/java/ticket/booking/localDb/users.json";
+    
+    {
+        objectMapper = new ObjectMapper();
+        objectMapper.setPropertyNamingStrategy(com.fasterxml.jackson.databind.PropertyNamingStrategies.SNAKE_CASE);
+    }
 
 
     public UserBookingService() throws IOException
@@ -35,7 +43,25 @@ public class UserBookingService
     public List<User> loadUsers() throws IOException
     {
         File file = new File(USER_PATH);
+        if(!file.exists())
+        {
+            // If file doesn't exist, create an empty list
+            userList = new ArrayList<>();
+            // Create the file with empty array
+            objectMapper.writeValue(file, userList);
+            return userList;
+        }
+        if(file.length() == 0)
+        {
+            // If file is empty, initialize with empty list
+            userList = new ArrayList<>();
+            return userList;
+        }
         userList = objectMapper.readValue(file, new TypeReference<List<User>>() {});
+        if(userList == null)
+        {
+            userList = new ArrayList<>();
+        }
         return userList;
     }
 
