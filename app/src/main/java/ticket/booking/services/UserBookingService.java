@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import ticket.booking.entities.User;
 import ticket.booking.utils.UserServiceUtils;
 
@@ -35,11 +38,51 @@ public class UserBookingService
     }
 
     public Boolean loginUser() {
-        // Using stream to find a matching user
+        // Using stream to find a matching user by username
         Optional<User> foundUser = userList.stream().filter(user1 -> {
-            return user1.getName().equalsIgnoreCase(user.getName()) && UserServiceUtils.checkPassword(user1.getHashedPassword(), user.getPassword());}).findFirst();
-        // Return true if user exists, false otherwise
-        return foundUser.isPresent();
+            return user1.getUsername().equalsIgnoreCase(user.getUsername()) && UserServiceUtils.checkPassword(user1.getHashedPassword(), user.getPassword());}).findFirst();
+        if(foundUser.isPresent())
+        {
+            this.user = foundUser.get();
+            return true;
+        }
+        return false;
+    }
+    
+    public Boolean loginUser(String loginMethod, String loginIdentifier, String password) {
+        // Using stream to find a matching user based on login method
+        Optional<User> foundUser = Optional.empty();
+        
+        if(loginMethod.equals("1")) // Login via Phone
+        {
+            foundUser = userList.stream().filter(user1 -> {
+                return user1.getPhone().equals(loginIdentifier) && UserServiceUtils.checkPassword(user1.getHashedPassword(), password);
+            }).findFirst();
+        }
+        else if(loginMethod.equals("2")) // Login via Email
+        {
+            foundUser = userList.stream().filter(user1 -> {
+                return user1.getEmail().equalsIgnoreCase(loginIdentifier) && UserServiceUtils.checkPassword(user1.getHashedPassword(), password);
+            }).findFirst();
+        }
+        else if(loginMethod.equals("3")) // Login via Username
+        {
+            foundUser = userList.stream().filter(user1 -> {
+                return user1.getUsername().equalsIgnoreCase(loginIdentifier) && UserServiceUtils.checkPassword(user1.getHashedPassword(), password);
+            }).findFirst();
+        }
+        
+        if(foundUser.isPresent())
+        {
+            this.user = foundUser.get();
+            return true;
+        }
+        return false;
+    }
+    
+    public User getCurrentUser()
+    {
+        return this.user;
     }
     public Boolean signUpUser(User user)
     {
