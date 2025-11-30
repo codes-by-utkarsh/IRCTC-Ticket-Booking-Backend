@@ -12,6 +12,11 @@ public class Ticket
     private Date dateTime;
     private Train train;
 
+    public Ticket()
+    {
+        // Default constructor for Jackson deserialization
+    }
+
     public Ticket(String ticketId, String username, String PNR, String dest, String source, Date dateTime, Train train)
     {
         this.ticketId = ticketId;
@@ -38,6 +43,12 @@ public class Ticket
     public void setDest(String dest) {
         this.dest = dest;
     }
+    
+    // For JSON deserialization - maps "destination" to "dest"
+    public void setDestination(String destination) {
+        this.dest = destination;
+    }
+    
     public String getDest() {
         return dest;
     }
@@ -50,6 +61,12 @@ public class Ticket
     public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
+    
+    // For JSON deserialization - maps "date_of_travel" to "dateTime"
+    public void setDateOfTravel(Date dateOfTravel) {
+        this.dateTime = dateOfTravel;
+    }
+    
     public Date getDateTime() {
         return dateTime;
     }

@@ -11,6 +11,11 @@ public class Train
     private Map<String, String> stationTime;
     private List<String> Stations;
 
+    public Train()
+    {
+        // Default constructor for Jackson deserialization
+    }
+
     public Train(String trainId, String trainNo, List<List<Integer>> seats, Map<String, String> stationTime, List<String> Stations)
         {
         this.trainId = trainId;

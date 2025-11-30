@@ -8,9 +8,6 @@ import java.util.Optional;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JsonNode;
-import ticket.booking.services.UserBookingService;
-
 
 import ticket.booking.entities.Train;
 import ticket.booking.entities.User;
@@ -26,6 +23,8 @@ public class UserBookingService
     {
         objectMapper = new ObjectMapper();
         objectMapper.setPropertyNamingStrategy(com.fasterxml.jackson.databind.PropertyNamingStrategies.SNAKE_CASE);
+        // Ignore unknown properties to handle JSON fields that don't match exactly
+        objectMapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
 
