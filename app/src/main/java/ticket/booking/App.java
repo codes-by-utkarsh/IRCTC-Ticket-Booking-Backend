@@ -92,7 +92,7 @@ public class App
                         System.out.println("Enter Your Password");
                         String passwordToSignIn = sc.next();
                         User usertoSignIn = new User(
-                                userID,
+                                ,
                                 UUID.randomUUID().toString(),        // userId should be UUID
                                 passwordToSignIn,
                                 UserServiceUtils.hashPassword(passwordToSignIn),
