@@ -5,17 +5,17 @@ import java.util.Date;
 public class Ticket
 {
     private String ticketId;
-    private String userId;
+    private String username;
     private String PNR;
     private String dest;
     private String source;
     private Date dateTime;
     private Train train;
 
-    public Ticket(String ticketId, String userId, String PNR, String dest, String source, Date dateTime, Train train)
+    public Ticket(String ticketId, String username, String PNR, String dest, String source, Date dateTime, Train train)
     {
         this.ticketId = ticketId;
-        this.userId = userId;
+        this.username = username;
         this.PNR = PNR;
         this.dest = dest;
         this.source = source;
@@ -23,11 +23,11 @@ public class Ticket
         this.train = train;
     }
 
-    public void setUserId(String userId) {
-            this.userId = userId;
+    public void setUsername(String username) {
+            this.username = username;
     }
-    public String getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
     public void setPNR(String PNR) {
         this.PNR = PNR;
@@ -67,6 +67,6 @@ public class Ticket
     }
     public String getTicketInfo()
     {
-        return String.format("Ticket ID: %s belongs to user %s from %s to %s on %s",ticketId,userId,source,dest,dateTime);
+        return String.format("Ticket ID: %s belongs to user %s from %s to %s on %s",ticketId,username,source,dest,dateTime);
     }
 }
