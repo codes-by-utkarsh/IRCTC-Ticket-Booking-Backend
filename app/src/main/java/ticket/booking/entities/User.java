@@ -1,12 +1,11 @@
 package ticket.booking.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class User
 {
     private String name;
-    private String userId;
+    private String username;
     private String password;
     private String hashedPassword;
     private String email;
@@ -14,10 +13,10 @@ public class User
     private List<Ticket> ticketsBooked;
 
 
-    public User(String name, String userId, String password, String hashedPassword, String email, String phone, List<Ticket> ticketsBooked)
+    public User(String name, String username, String password, String hashedPassword, String email, String phone, List<Ticket> ticketsBooked)
     {
         this.name = name;
-        this.userId = userId;
+        this.username = username;
         this.password = password;
         this.hashedPassword = hashedPassword;
         this.email = email;
@@ -31,9 +30,9 @@ public class User
     {
         return name;
     }
-    public String getUserId()
+    public String getUsername()
     {
-        return userId;
+        return username;
     }
     public String getPassword()
     {
@@ -59,9 +58,9 @@ public class User
     {
         this.name = name;
     }
-    public void setUserId(String userId)
+    public void setUsername(String username)
     {
-        this.userId = userId;
+        this.username = username;
     }
     public void setPassword(String password)
     {
