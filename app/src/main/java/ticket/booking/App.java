@@ -105,7 +105,10 @@ public class App
                         if(loginSuccess)
                         {
                             System.out.println("Login Successful!");
-
+                            try
+                            {
+                                UserBookingService user = new UserBookingService(user);
+                            }
                         }
                         else
                         {
@@ -140,6 +143,12 @@ public class App
                     String ticketIdToCancel = sc.nextLine();
                     userBookingService.cancelBooking(ticketIdToCancel);
                     break;
+
+                    case 7:
+                    System.out.println("Thank You For Using IRCTC! ");
+
+                default:
+                    System.out.println("Wrong Input. Try again");
             }
         }
     }
