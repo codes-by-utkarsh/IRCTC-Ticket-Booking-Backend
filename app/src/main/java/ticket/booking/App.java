@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 import ticket.booking.entities.Train;
 import ticket.booking.entities.User;
+import ticket.booking.entities.Ticket;
 import ticket.booking.services.UserBookingService;
 import ticket.booking.utils.UserServiceUtils;
 
@@ -29,6 +30,8 @@ public class App
         catch (IOException e)
         {
            System.out.println("Error: User booking service is not available");
+           System.out.println("Details: " + e.getMessage());
+           e.printStackTrace();
            return;
         }
         while(option!=7)
