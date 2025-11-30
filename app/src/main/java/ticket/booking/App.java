@@ -3,14 +3,14 @@
  */
 package ticket.booking;
 
-import ticket.booking.entities.User;
-import ticket.booking.services.UserBookingService;
-import ticket.booking.utils.UserServiceUtils;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
+
+import ticket.booking.entities.User;
+import ticket.booking.services.UserBookingService;
+import ticket.booking.utils.UserServiceUtils;
 
 
 public class App
@@ -45,19 +45,22 @@ public class App
             switch(option)
             {
                 case 1:
+                    sc.nextLine(); // consume the newline left by nextInt()
+                    System.out.println("Enter Your Username");
+                    String usernameToSignUp = sc.nextLine();
                     System.out.println("Enter Your Name");
                     String nameToSignUp = sc.nextLine();
                     System.out.println("Enter Your Password");
-                    String passwordToSignUp = sc.next();
+                    String passwordToSignUp = sc.nextLine();
                     System.out.println("Enter Your Email Address");
-                    String emailToSignUp = sc.next();
+                    String emailToSignUp = sc.nextLine();
                     System.out.println("Enter Your Phone Number");
-                    String phoneToSignUp = sc.next();
+                    String phoneToSignUp = sc.nextLine();
                     User user = new User(
                             nameToSignUp,
-                            UUID.randomUUID().toString(),        // userId should be UUID
+                            usernameToSignUp,
                             passwordToSignUp,
-                            UserServiceUtils.hashPassword(password),
+                            UserServiceUtils.hashPassword(passwordToSignUp),
                             emailToSignUp,
                             phoneToSignUp,
                             new ArrayList<>()                   // empty list of tickets
