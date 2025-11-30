@@ -1,15 +1,12 @@
 package ticket.booking.services;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import ticket.booking.entities.User;
-import ticket.booking.utils.UserServiceUtils;
-
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Optional;
+
+import ticket.booking.entities.User;
+import ticket.booking.utils.UserServiceUtils;
 
 public class UserBookingService
 {
@@ -33,7 +30,8 @@ public class UserBookingService
     public List<User> loadUsers() throws IOException
     {
         File file = new File(USER_PATH);
-        return objectMapper.readValue(users, new TypeReference<List<User>>() {});
+        userList = objectMapper.readValue(file, new TypeReference<List<User>>() {});
+        return userList;
     }
 
     public Boolean loginUser() {
@@ -45,10 +43,12 @@ public class UserBookingService
     }
     public Boolean signUpUser(User user)
     {
-        Optional<User> foundUser = userList.stream().filter(user1 -> {return user1.getUserId().equalsIgnoreCase(user.getUserId())}).findFirst();
+        Optional<User> foundUser = userList.stream()
+                .filter(user1 -> user1.getUsername().equalsIgnoreCase(user.getUsername()))
+                .findFirst();
         if(foundUser.isPresent())
         {
-            System.out.println("User already exists. Try Another");
+            System.out.println("Username already exists. Please choose a different username.");
             return false;
         }
         try{
