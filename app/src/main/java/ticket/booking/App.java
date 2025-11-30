@@ -6,7 +6,6 @@ package ticket.booking;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.UUID;
 
 import ticket.booking.entities.User;
 import ticket.booking.services.UserBookingService;
@@ -68,43 +67,78 @@ public class App
                     System.out.println("Your Details are as follows : "+user);
                     userBookingService.signUpUser(user);
                     break;
-                    case 2:
-                        System.out.println("Login Method");
-                        System.out.println("1. Via Phone Number");
-                        System.out.println("2. Via Email Address");
-                        System.out.println("3. Via Username");
-                        String loginMethod = sc.next();
-                        if(loginMethod.equals("1"))
+                case 2:
+                    sc.nextLine(); // consume the newline left by nextInt()
+                    System.out.println("Login Method");
+                    System.out.println("1. Via Phone Number");
+                    System.out.println("2. Via Email Address");
+                    System.out.println("3. Via Username");
+                    String loginMethod = sc.nextLine();
+                    String loginIdentifier = "";
+                    
+                    if(loginMethod.equals("1"))
+                    {
+                        System.out.println("Enter Phone Number");
+                        loginIdentifier = sc.nextLine();
+                    }
+                    else if(loginMethod.equals("2"))
+                    {
+                        System.out.println("Enter Email Address");
+                        loginIdentifier = sc.nextLine();
+                    }
+                    else if(loginMethod.equals("3"))
+                    {
+                        System.out.println("Enter Username");
+                        loginIdentifier = sc.nextLine();
+                    }
+                    else
+                    {
+                        System.out.println("Wrong Login Method");
+                        break;
+                    }
+                    
+                    System.out.println("Enter Your Password");
+                    String passwordToSignIn = sc.nextLine();
+                    
+                    try {
+                        Boolean loginSuccess = userBookingService.loginUser(loginMethod, loginIdentifier, passwordToSignIn);
+                        if(loginSuccess)
                         {
-                            System.out.println("Enter Phone Number");
-                            String phoneToSignIn = sc.next();
+                            System.out.println("Login Successful!");
                         }
-                        else if(loginMethod.equals("2"))
+                        else
                         {
-                            System.out.println("Enter Email Address");
-                            String emailToSignIn = sc.next();
+                            System.out.println("Login Failed! Invalid credentials.");
                         }
-                        else if(loginMethod.equals("3"))
-                        {
-                            System.out.println("Enter Username");
-                            String usernameToSignIn = sc.next();
-                        }
-                        else{
-                            System.out.println("Wrong Login Method");
-                        }
-                        System.out.println("Enter Your Password");
-                        String passwordToSignIn = sc.next();
-                        User usertoSignIn = new User(
-                                ,
-                                UUID.randomUUID().toString(),        // userId should be UUID
-                                passwordToSignIn,
-                                UserServiceUtils.hashPassword(passwordToSignIn),
-                                emailToSignUp,
-                                phone,
-                                new ArrayList<>()
-                        );
-
-
+                    } catch (Exception e) {
+                        System.out.println("Error during login: " + e.getMessage());
+                    }
+                    break;
+                case 3:
+                    if(userBookingService.getCurrentUser() == null)
+                    {
+                        System.out.println("Please sign in first.");
+                        break;
+                    }
+                    userBookingService.fetchBooking();
+                    break;
+                case 4:
+                    System.out.println("Search Trains - Feature not yet implemented");
+                    break;
+                case 5:
+                    System.out.println("Book a Seat - Feature not yet implemented");
+                    break;
+                case 6:
+                    if(userBookingService.getCurrentUser() == null)
+                    {
+                        System.out.println("Please sign in first.");
+                        break;
+                    }
+                    sc.nextLine(); // consume the newline left by nextInt()
+                    System.out.println("Enter Ticket ID to cancel");
+                    String ticketIdToCancel = sc.nextLine();
+                    userBookingService.cancelBooking(ticketIdToCancel);
+                    break;
             }
         }
     }
