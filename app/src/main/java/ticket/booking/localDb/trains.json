@@ -1,0 +1,166 @@
+[
+  {
+    "trainId": "T1001",
+    "trainNo": "12951",
+    "stations": ["Mumbai", "Pune", "Nagpur", "Bhopal", "Delhi"],
+    "stationTime": {
+      "Mumbai": "09:00:00",
+      "Pune": "11:30:00",
+      "Nagpur": "15:45:00",
+      "Bhopal": "18:00:00",
+      "Delhi": "18:45:00"
+    },
+    "seats": [
+      [0,0,0,1,1],
+      [1,1,0,0,0],
+      [0,0,1,1,0],
+      [0,1,0,0,0]
+    ]
+  },
+  {
+    "trainId": "T2002",
+    "trainNo": "22691",
+    "stations": ["Bangalore", "Chennai", "Vijayawada", "Hyderabad"],
+    "stationTime": {
+      "Bangalore": "14:30:00",
+      "Chennai": "16:00:00",
+      "Vijayawada": "17:30:00",
+      "Hyderabad": "18:00:00"
+    },
+    "seats": [
+      [0,0,1,0,0],
+      [1,0,0,1,1],
+      [1,1,0,0,0],
+      [0,0,0,1,0]
+    ]
+  },
+  {
+    "trainId": "T3003",
+    "trainNo": "12303",
+    "stations": ["Kolkata", "Dhanbad", "Patna"],
+    "stationTime": {
+      "Kolkata": "07:15:00",
+      "Dhanbad": "10:00:00",
+      "Patna": "12:50:00"
+    },
+    "seats": [
+      [0,1,0,0,1],
+      [0,0,0,1,1],
+      [1,0,0,0,0],
+      [0,0,1,0,1]
+    ]
+  },
+  {
+    "trainId": "T4004",
+    "trainNo": "12621",
+    "stations": ["Chennai", "Vijayawada", "Hyderabad"],
+    "stationTime": {
+      "Chennai": "16:20:00",
+      "Vijayawada": "18:00:00",
+      "Hyderabad": "20:40:00"
+    },
+    "seats": [
+      [0,0,0,0,0],
+      [1,0,1,0,1],
+      [0,1,0,1,0],
+      [0,0,1,0,0]
+    ]
+  },
+  {
+    "trainId": "T5005",
+    "trainNo": "19416",
+    "stations": ["Jaipur", "Ajmer", "Ahmedabad"],
+    "stationTime": {
+      "Jaipur": "10:00:00",
+      "Ajmer": "12:30:00",
+      "Ahmedabad": "18:00:00"
+    },
+    "seats": [
+      [1,1,0,0,0],
+      [0,0,1,1,0],
+      [0,0,0,0,1],
+      [1,0,0,1,0]
+    ]
+  },
+  {
+    "trainId": "T6006",
+    "trainNo": "12004",
+    "stations": ["Lucknow", "Kanpur"],
+    "stationTime": {
+      "Lucknow": "08:30:00",
+      "Kanpur": "09:10:00"
+    },
+    "seats": [
+      [0,0,1,0,0],
+      [1,0,0,1,0],
+      [0,0,0,0,0],
+      [1,1,0,0,1]
+    ]
+  },
+  {
+    "trainId": "T7007",
+    "trainNo": "16306",
+    "stations": ["Kochi", "Alappuzha", "Trivandrum"],
+    "stationTime": {
+      "Kochi": "06:00:00",
+      "Alappuzha": "07:30:00",
+      "Trivandrum": "09:30:00"
+    },
+    "seats": [
+      [1,0,0,0,0],
+      [0,0,1,1,0],
+      [0,1,0,0,1],
+      [1,0,0,0,0]
+    ]
+  },
+  {
+    "trainId": "T8008",
+    "trainNo": "11099",
+    "stations": ["Pune", "Satara", "Kolhapur", "Goa"],
+    "stationTime": {
+      "Pune": "23:00:00",
+      "Satara": "01:30:00",
+      "Kolhapur": "03:00:00",
+      "Goa": "06:15:00"
+    },
+    "seats": [
+      [0,0,0,1,1],
+      [0,1,0,0,0],
+      [1,0,0,1,0],
+      [0,0,0,0,0]
+    ]
+  },
+  {
+    "trainId": "T9009",
+    "trainNo": "22954",
+    "stations": ["Surat", "Vapi", "Mumbai"],
+    "stationTime": {
+      "Surat": "05:00:00",
+      "Vapi": "06:30:00",
+      "Mumbai": "09:45:00"
+    },
+    "seats": [
+      [0,1,1,0,0],
+      [0,0,0,1,1],
+      [1,0,0,0,0],
+      [0,0,0,0,1]
+    ]
+  },
+  {
+    "trainId": "T1010",
+    "trainNo": "12050",
+    "stations": ["Delhi", "Mathura", "Agra"],
+    "stationTime": {
+      "Delhi": "12:45:00",
+      "Mathura": "13:30:00",
+      "Agra": "14:30:00"
+    },
+    "seats": [
+      [0,0,0,0,0],
+      [1,1,1,0,0],
+      [0,0,1,0,1],
+      [0,0,0,0,0]
+    ]
+  }
+]
+

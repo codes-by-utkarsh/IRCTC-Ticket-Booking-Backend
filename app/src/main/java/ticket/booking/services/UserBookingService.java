@@ -2,11 +2,14 @@ package ticket.booking.services;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ticket.booking.entities.Train;
 import ticket.booking.entities.User;
 import ticket.booking.utils.UserServiceUtils;
 
@@ -137,6 +140,19 @@ public class UserBookingService
             return false;
         }
         return true;
+    }
+    public List<Train> getTrains(String sourceOfTheTrain, String destinationOfTheTrain)
+    {
+        try
+        {
+            TrainService trainService = new TrainService();
+            return trainService.searchTrains(sourceOfTheTrain, destinationOfTheTrain);
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error loading train service: " + e.getMessage());
+            return new ArrayList<>();
+        }
     }
 
 }

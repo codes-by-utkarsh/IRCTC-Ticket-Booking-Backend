@@ -5,8 +5,10 @@ package ticket.booking;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import ticket.booking.entities.Train;
 import ticket.booking.entities.User;
 import ticket.booking.services.UserBookingService;
 import ticket.booking.utils.UserServiceUtils;
@@ -123,7 +125,24 @@ public class App
                     userBookingService.fetchBooking();
                     break;
                 case 4:
-                    System.out.println("Search Trains - Feature not yet implemented");
+                    sc.nextLine(); // consume the newline left by nextInt()
+                    System.out.println("Enter Source of The Train");
+                    String sourceOfTheTrain = sc.nextLine();
+                    System.out.println("Enter Destination of The Train");
+                    String destinationOfTheTrain = sc.nextLine();
+                    List<Train> trains = userBookingService.getTrains(sourceOfTheTrain, destinationOfTheTrain);
+                    if(trains.isEmpty())
+                    {
+                        System.out.println("No trains found for the given route.");
+                    }
+                    else
+                    {
+                        System.out.println("Found " + trains.size() + " train(s):");
+                        for(Train train : trains)
+                        {
+                            System.out.println(train.getTrainInfo() + " - Stations: " + train.getStations());
+                        }
+                    }
                     break;
                 case 5:
                     System.out.println("Book a Seat - Feature not yet implemented");
@@ -139,12 +158,12 @@ public class App
                     String ticketIdToCancel = sc.nextLine();
                     userBookingService.cancelBooking(ticketIdToCancel);
                     break;
-
-                    case 7:
+                case 7:
                     System.out.println("Thank You For Using IRCTC! ");
-
+                    break;
                 default:
                     System.out.println("Wrong Input. Try again");
+                    break;
             }
         }
     }
