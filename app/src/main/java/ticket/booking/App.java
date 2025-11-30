@@ -46,30 +46,61 @@ public class App
             {
                 case 1:
                     System.out.println("Enter Your Name");
-                    String name = sc.nextLine();
+                    String nameToSignUp = sc.nextLine();
                     System.out.println("Enter Your Password");
-                    String password = sc.next();
+                    String passwordToSignUp = sc.next();
                     System.out.println("Enter Your Email Address");
-                    String email = sc.next();
+                    String emailToSignUp = sc.next();
                     System.out.println("Enter Your Phone Number");
-                    String phone = sc.next();
+                    String phoneToSignUp = sc.next();
                     User user = new User(
-                            name,
+                            nameToSignUp,
                             UUID.randomUUID().toString(),        // userId should be UUID
-                            password,
+                            passwordToSignUp,
                             UserServiceUtils.hashPassword(password),
-                            email,
-                            phone,
+                            emailToSignUp,
+                            phoneToSignUp,
                             new ArrayList<>()                   // empty list of tickets
                     );
                     System.out.println("Your Details are as follows : "+user);
                     userBookingService.signUpUser(user);
                     break;
                     case 2:
-                        System.out.println("Enter Your UserID/UUID");
-                        String userID = sc.nextLine();
+                        System.out.println("Login Method");
+                        System.out.println("1. Via Phone Number");
+                        System.out.println("2. Via Email Address");
+                        System.out.println("3. Via Username");
+                        String loginMethod = sc.next();
+                        if(loginMethod.equals("1"))
+                        {
+                            System.out.println("Enter Phone Number");
+                            String phoneToSignIn = sc.next();
+                        }
+                        else if(loginMethod.equals("2"))
+                        {
+                            System.out.println("Enter Email Address");
+                            String emailToSignIn = sc.next();
+                        }
+                        else if(loginMethod.equals("3"))
+                        {
+                            System.out.println("Enter Username");
+                            String usernameToSignIn = sc.next();
+                        }
+                        else{
+                            System.out.println("Wrong Login Method");
+                        }
                         System.out.println("Enter Your Password");
-                        String pas
+                        String passwordToSignIn = sc.next();
+                        User usertoSignIn = new User(
+                                userID,
+                                UUID.randomUUID().toString(),        // userId should be UUID
+                                passwordToSignIn,
+                                UserServiceUtils.hashPassword(passwordToSignIn),
+                                emailToSignUp,
+                                phone,
+                                new ArrayList<>()
+                        );
+
 
             }
         }
